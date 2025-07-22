@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a personal portfolio website showcasing the skills, projects, and information about me. The website is designed to provide a glimpse into Aldowad's professional background, projects, and expertise.
+This project is a personal portfolio website showcasing the skills, projects, and information about me. The website is designed to provide a glimpse into Áidano Lima professional background, projects, and expertise.
 
 The project includes the following files:
 
