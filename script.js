@@ -183,8 +183,8 @@ let swiperTestimonial = new Swiper(".testimonial-container", {
 const typingTextElement = document.getElementById("typing-text");
 const phrases = [
   "I'll be here soon",
-  "I'll be here soon",
-  "I'll be here soon",
+  "In more detail",
+  "about my portfolio",
 
   // "Full Stack Developer",
   // "DevOps Engineer",
