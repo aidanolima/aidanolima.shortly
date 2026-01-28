@@ -1223,3 +1223,22 @@ img {
     bottom: -4.5rem;
   }
 }
+/* --- Correção Definitiva do Botão "Contact Me" (Seção Project) --- */
+
+.project-contact .button {
+  /* Força o botão a ter apenas o tamanho do conteúdo */
+  width: fit-content !important; 
+  
+  /* Garante que o display não seja 'block' (que ocupa a linha toda) */
+  display: inline-flex !important; 
+  
+  /* Reseta margens que possam estar empurrando ele para fora */
+  margin: 1rem 0 0 0 !important; 
+}
+
+/* Garante que o container pai alinhe o botão à esquerda e não tente esticá-lo */
+.project-data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start !important; /* Isso impede o botão de esticar */
+}
