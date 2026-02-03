@@ -1242,3 +1242,43 @@ img {
   flex-direction: column;
   align-items: flex-start !important; /* Isso impede o botão de esticar */
 }
+
+/* testimonial  */
+.testimonial-data,
+.testimonial-header {
+  display: flex;
+}
+
+.testimonial-data {
+  justify-content: space-between;
+  margin-bottom: var(--margin-bottom-0-1);
+}
+
+.testimonial-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: var(--margin-bottom-0-75);
+}
+
+.testimonial-name {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-medium);
+}
+
+.testimonial-client {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.testimonial-description {
+  margin-bottom: var(--margin-bottom-0-2-5);
+}
+
+.testimonial-icon {
+  color: var(--first-color);
+}
+
+.swiper-container .swiper-pagination-testimonial {
+  bottom: 0;
+}

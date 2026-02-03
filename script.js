@@ -1,30 +1,35 @@
+/*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById("nav-menu"),
   navToggle = document.getElementById("nav-toggle"),
   navClose = document.getElementById("nav-close");
 
+/*===== MENU SHOW =====*/
+/* Validate if constant exists */
 if (navToggle) {
   navToggle.addEventListener("click", () => {
     navMenu.classList.add("show-menu");
   });
 }
 
+/*===== MENU HIDDEN =====*/
+/* Validate if constant exists */
 if (navClose) {
   navClose.addEventListener("click", () => {
     navMenu.classList.remove("show-menu");
   });
 }
 
-// remove menu mobile
+/*==================== REMOVE MENU MOBILE ====================*/
 const navLink = document.querySelectorAll(".nav-link");
 
 function linkAction() {
   const navMenu = document.getElementById("nav-menu");
+  // When we click on each nav__link, we remove the show-menu class
   navMenu.classList.remove("show-menu");
 }
-
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
-// qualifi
+/*==================== QUALIFICATION TABS ====================*/
 const tabs = document.querySelectorAll("[data-target]"),
   tabContents = document.querySelectorAll("[data-content]");
 
@@ -45,7 +50,7 @@ tabs.forEach((tab) => {
   });
 });
 
-// services box
+/*==================== SERVICES MODAL ====================*/
 const boxViews = document.querySelectorAll(".services-box"),
   boxBtns = document.querySelectorAll(".services-button"),
   boxCloses = document.querySelectorAll(".services-box-close");
@@ -68,7 +73,7 @@ boxCloses.forEach((boxClose) => {
   });
 });
 
-//scroll section active link
+/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll("section[id]");
 
 function scrollActive() {
@@ -92,7 +97,7 @@ function scrollActive() {
 }
 window.addEventListener("scroll", scrollActive);
 
-// change bg header
+/*==================== CHANGE BACKGROUND HEADER ====================*/
 function scrollHeader() {
   const nav = document.getElementById("header");
   // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
@@ -110,7 +115,7 @@ function scrollUp() {
 }
 window.addEventListener("scroll", scrollUp);
 
-//dark light mode------------------
+/*==================== DARK LIGHT THEME ====================*/
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
 const iconTheme = "fa-sun";
@@ -146,7 +151,7 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
 
-//swiper
+/*==================== PORTFOLIO SWIPER ====================*/
 let swiperPortfolio = new Swiper(".portfolio-container", {
   cssMode: true,
   loop: true,
@@ -162,24 +167,32 @@ let swiperPortfolio = new Swiper(".portfolio-container", {
   },
 });
 
+/*==================== TESTIMONIAL SWIPER (ATUALIZADO) ====================*/
 let swiperTestimonial = new Swiper(".testimonial-container", {
-  cssMode: true,
   loop: true,
+  grabCursor: true,
   spaceBetween: 48,
+  slidesPerView: 1, // Começa com 1 slide para evitar quebra em telas menores
 
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
+  // Configuração das Setas (Navigation) - Igual ao Projects
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 
   breakpoints: {
     568: {
       slidesPerView: 2,
     },
+    // Você pode adicionar um para desktop se quiser ver 3 por vez
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 50,
+    }
   },
 });
 
-// animasi ketikan
+/*==================== TYPING ANIMATION ====================*/
 const typingTextElement = document.getElementById("typing-text");
 const phrases = [
   "I'll be here soon",
