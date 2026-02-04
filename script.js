@@ -158,7 +158,7 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// Dicionário de Traduções
+// Dicionário de Traduções (ATUALIZADO COM PROJETOS 3 e 4)
 const translations = {
   en: {
     nav_home: "Home",
@@ -206,6 +206,10 @@ const translations = {
     projects_subtitle: "Most recent work",
     project_1_desc: "Implementation of scalable cloud architectures This is a SaaS project for an insurance policy management system, developed to facilitate the digital administration of proposals and policies.",
     project_2_desc: "Large-scale dev FrontEnd software development project managementPet Admin GOV is a senior administration panel developed to manage pets and their owners in a centralized way.",
+    project_3_title: "Professional Landing Page",
+    project_3_desc: "Creation of the corporate landing page for ASL SOLUÇÕES TECH, a page with all company information.",
+    project_4_title: "Sales Landing Page",
+    project_4_desc: "Creation of the sales landing page for APÓLICE SYSTEM software, a dynamic page for contracting IT services.",
     project_view: "View Details",
     testimonial_title: "Testimonial",
     testimonial_subtitle: "My clients and professional friends are saying",
@@ -221,7 +225,7 @@ const translations = {
     project_contact_desc: "Feel Free to Discuss with me",
     contact_title: "Contact me",
     contact_subtitle: "Get in touch",
-    typing_phrases: ["This is my portfolio", "My professional journey", "Feel free to contact me!"]
+    typing_phrases: ["I'll be here soon", "In more detail", "about my portfolio"]
   },
   pt: {
     nav_home: "Início",
@@ -269,6 +273,10 @@ const translations = {
     projects_subtitle: "Trabalhos recentes",
     project_1_desc: "Implementação de arquiteturas de nuvem escaláveis. Este é um projeto SaaS para um sistema de gestão de apólices de seguros, desenvolvido para facilitar a administração digital de propostas e apólices.",
     project_2_desc: "Gestão de projetos de software FrontEnd em larga escala. Pet Admin GOV é um painel administrativo sênior desenvolvido para gerenciar pets e seus donos de forma centralizada.",
+    project_3_title: "LandingPage Profissional",
+    project_3_desc: "Criação da landingpage corporativa da ASL SOLUÇÕES TECH, uma pagina com todas as informaçoes da empresa.",
+    project_4_title: "LandingPage de Vendas",
+    project_4_desc: "Criação da landingpage de vendas do software APÓLICE SYSTEM, uma pagina dinamica para contrataçao de serviço de TI.",
     project_view: "Ver Detalhes",
     testimonial_title: "Depoimentos",
     testimonial_subtitle: "O que clientes e amigos dizem",
@@ -284,7 +292,7 @@ const translations = {
     project_contact_desc: "Sinta-se à vontade para discutir comigo",
     contact_title: "Contato",
     contact_subtitle: "Entre em contato",
-    typing_phrases: ["Este é o meu portfólio ", "Minha jornada profissional", "Fiquem a vontade em me contactar!"]
+    typing_phrases: ["Estarei aqui em breve", "Com mais detalhes", "sobre meu portfólio"]
   },
   es: {
     nav_home: "Inicio",
@@ -332,6 +340,10 @@ const translations = {
     projects_subtitle: "Trabajos recientes",
     project_1_desc: "Implementación de arquitecturas en la nube escalables. Este es un proyecto SaaS para un sistema de gestión de pólizas de seguros, desarrollado para facilitar la administración digital.",
     project_2_desc: "Gestión de proyectos de desarrollo de software FrontEnd a gran escala. Pet Admin GOV es un panel administrativo senior desarrollado para gestionar mascotas y dueños.",
+    project_3_title: "Landing Page Profesional",
+    project_3_desc: "Creación de la landing page corporativa de ASL SOLUÇÕES TECH, una página con toda la información de la empresa.",
+    project_4_title: "Landing Page de Ventas",
+    project_4_desc: "Creación de la landing page de ventas del software APÓLICE SYSTEM, una página dinámica para la contratación de servicios de TI.",
     project_view: "Ver Detalles",
     testimonial_title: "Testimonios",
     testimonial_subtitle: "Lo que dicen clientes y amigos",
@@ -347,7 +359,7 @@ const translations = {
     project_contact_desc: "Siéntete libre de discutir conmigo",
     contact_title: "Contacto",
     contact_subtitle: "Ponte en contacto",
-    typing_phrases: ["Este es mi portafolio", "Mi recorrido profesional", "¡No dudes en contactarme!"]
+    typing_phrases: ["Estaré aquí pronto", "Con más detalles", "sobre mi portafolio"]
   }
 };
 
