@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
+<html lang="en"> <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Áidano Lima</title>
@@ -10,6 +9,58 @@
     <link rel="stylesheet" href="Css/style.css" /> 
     
     <script src="https://kit.fontawesome.com/9b634c15bd.js" crossorigin="anonymous"></script>
+
+    <style>
+      .nav-language {
+        position: relative;
+        margin-right: 1.5rem;
+        cursor: pointer;
+        font-size: 1.25rem;
+        color: var(--title-color);
+        display: flex;
+        align-items: center;
+      }
+      
+      .language-menu {
+        position: absolute;
+        top: 120%;
+        right: -10px;
+        background-color: var(--container-color);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        border-radius: 0.5rem;
+        padding: 0.5rem 0;
+        display: none;
+        z-index: 1000;
+        min-width: 140px;
+      }
+
+      /* Classe para mostrar o menu */
+      .show-language {
+        display: block;
+      }
+
+      .language-option {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .language-option:hover {
+        background-color: var(--body-color);
+        color: var(--title-color);
+      }
+      
+      /* Ajuste para o ícone do tema não colar */
+      .nav-btns {
+        display: flex;
+        align-items: center;
+      }
+    </style>
   </head>
   <body>
     <header class="header" id="header">
@@ -20,32 +71,32 @@
           <ul class="nav-list grid">
             <li class="nav-item">
               <a href="#home" class="nav-link">
-                <i class="fa-solid fa-house nav-icon"></i> Home
+                <i class="fa-solid fa-house nav-icon"></i> <span data-i18n="nav_home">Home</span>
               </a>
             </li>
             <li class="nav-item">
               <a href="#about" class="nav-link">
-                <i class="fa-solid fa-user nav-icon"></i> About
+                <i class="fa-solid fa-user nav-icon"></i> <span data-i18n="nav_about">About</span>
               </a>
             </li>
             <li class="nav-item">
               <a href="#skills" class="nav-link">
-                <i class="fa-solid fa-file nav-icon"></i> Skills
+                <i class="fa-solid fa-file nav-icon"></i> <span data-i18n="nav_skills">Skills</span>
               </a>
             </li>
             <li class="nav-item">
               <a href="#services" class="nav-link">
-                <i class="fa-solid fa-briefcase nav-icon"></i> Services
+                <i class="fa-solid fa-briefcase nav-icon"></i> <span data-i18n="nav_services">Services</span>
               </a>
             </li>
             <li class="nav-item">
               <a href="#portfolio" class="nav-link">
-                <i class="fa-solid fa-image nav-icon"></i> Projects
+                <i class="fa-solid fa-image nav-icon"></i> <span data-i18n="nav_projects">Projects</span>
               </a>
             </li>
             <li class="nav-item">
               <a href="#contact" class="nav-link">
-                <i class="fa-solid fa-message nav-icon"></i> Contact
+                <i class="fa-solid fa-message nav-icon"></i> <span data-i18n="nav_contact">Contact</span>
               </a>
             </li>
           </ul>
@@ -53,6 +104,15 @@
         </div>
 
         <div class="nav-btns">
+          <div class="nav-language" id="language-toggle">
+            <i class="fa-solid fa-globe"></i>
+            <div class="language-menu" id="language-menu">
+               <div class="language-option" data-lang="en">English</div>
+               <div class="language-option" data-lang="pt">Português</div>
+               <div class="language-option" data-lang="es">Español</div>
+            </div>
+          </div>
+
           <i class="fa-regular fa-moon change-theme" id="theme-button"></i>
 
           <div class="nav-toggle" id="nav-toggle">
@@ -85,11 +145,11 @@
             </div>
 
             <div class="home-data">
-              <h1 class="home-title">Hello, I'm Áidano Lima</h1>
+              <h1 class="home-title" data-i18n="home_title">Hello, I'm Áidano Lima</h1>
               <h3 class="home-subtitle">
                 <span id="typing-text">Dev Full Stack, Cloud and Project Manager</span>
               </h3>
-              <p class="home-description">
+              <p class="home-description" data-i18n="home_description">
                 Passionate about building scalable and efficient digital solutions, 
                 I specialize in technology and innovation, web development, 
                 application optimization, and cloud computing. 
@@ -97,7 +157,7 @@
                 my goal is to create impactful technologies that drive innovation.
               </p>
               <a href="#contact" class="button button-flex">
-                Contact Me <i class="fa-regular fa-envelope button-icon"></i>
+                <span data-i18n="home_contact_btn">Contact Me</span> <i class="fa-regular fa-envelope button-icon"></i>
               </a>
             </div>
           </div>
@@ -105,7 +165,7 @@
           <div class="home-scroll">
             <a href="#about" class="home-scroll-button button-flex">
               <img class="home-scroll-mouse" src="Assets/mouse.svg" alt="" />
-              <span class="home-scroll-name">Scroll down</span>
+              <span class="home-scroll-name" data-i18n="home_scroll">Scroll down</span>
               <i class="fa-solid fa-angles-down home-scroll-arrow"></i>
             </a>
           </div>
@@ -113,35 +173,35 @@
       </section>
 
       <section class="about section" id="about">
-        <h2 class="section-title">About Me</h2>
-        <span class="section-subtitle">My Introduction</span>
+        <h2 class="section-title" data-i18n="about_title">About Me</h2>
+        <span class="section-subtitle" data-i18n="about_subtitle">My Introduction</span>
 
         <div class="about-container container grid">
           <img src="Assets/Icons/aboutme.png" alt="" class="about-img" />
 
           <div class="about-data">
-            <p class="about-description">
+            <p class="about-description" data-i18n="about_description">
               IT Professional with a background in large-scale enterprises and over 22 years of experience in both public and private sectors. Expertise in Software Development Project Management, serving clients in banking, telecommunications, education, and operations planning. Skilled in stakeholder management, bridging the gap between clients, vendors, and teams. Proficient in facilitating communication, delivering presentations, and fostering the growth of projects and professional development.
             </p>
 
             <div class="about-info">
               <div>
                 <span class="about-info-title">20+</span>
-                <span class="about-info-name">Years <br /> experience</span>
+                <span class="about-info-name" data-i18n="about_exp_years">Years <br /> experience</span>
               </div>
               <div>
                 <span class="about-info-title">18+</span>
-                <span class="about-info-name">Completed <br /> project GitHub</span>
+                <span class="about-info-name" data-i18n="about_exp_projects">Completed <br /> project GitHub</span>
               </div>
               <div>
                 <span class="about-info-title">15+</span>
-                <span class="about-info-name">Companies <br /> worked</span>
+                <span class="about-info-name" data-i18n="about_exp_companies">Companies <br /> worked</span>
               </div>
             </div>
 
             <div class="about-buttons">
               <a href="Assets/cvaidanolima.pdf" download="Curriculo_Aidano_Lima.pdf" class="button button-flex">
-                Download my CV <i class="fa-solid fa-file-arrow-down button-icon"></i>
+                <span data-i18n="about_download_cv">Download my CV</span> <i class="fa-solid fa-file-arrow-down button-icon"></i>
               </a>
             </div>
           </div>
@@ -149,8 +209,8 @@
       </section>
 
       <section class="skills section" id="skills">
-        <h2 class="section-title">Skills</h2>
-        <span class="section-subtitle">My Technical Skills</span>
+        <h2 class="section-title" data-i18n="skills_title">Skills</h2>
+        <span class="section-subtitle" data-i18n="skills_subtitle">My Technical Skills</span>
         <div class="skills-content container">
           <div class="skills-name">HTML</div>
           <div class="skills-name">CSS</div>
@@ -180,16 +240,16 @@
       </section>
 
       <section class="qualification section">
-        <h2 class="section-title">Qualification</h2>
-        <span class="section-subtitle">My journey</span>
+        <h2 class="section-title" data-i18n="qualification_title">Qualification</h2>
+        <span class="section-subtitle" data-i18n="qualification_subtitle">My journey</span>
 
         <div class="qualification-container container">
           <div class="qualification-tabs">
             <div class="qualification-button button-flex qualification-active" data-target="#work">
-              <i class="fa-solid fa-briefcase qualification-icon"></i> Work History
+              <i class="fa-solid fa-briefcase qualification-icon"></i> <span data-i18n="qualification_work">Work History</span>
             </div>
             <div class="qualification-button button-flex" data-target="#education">
-              <i class="fa-solid fa-graduation-cap qualification-icon"></i> Education
+              <i class="fa-solid fa-graduation-cap qualification-icon"></i> <span data-i18n="qualification_edu">Education</span>
             </div>
           </div>
 
@@ -210,7 +270,6 @@
                   <span class="qualification-line"></span>
                 </div>
               </div>
-
               <div class="qualification-data">
                 <div></div>
                 <div>
@@ -655,35 +714,35 @@
       </section>
 
       <section class="services section" id="services">
-        <h2 class="section-title">Services</h2>
-        <span class="section-subtitle">What I offer</span>
+        <h2 class="section-title" data-i18n="services_title">Services</h2>
+        <span class="section-subtitle" data-i18n="services_subtitle">What I offer</span>
 
         <div class="services-container container grid">
           <div class="services-content">
             <div>
               <i class="fa-solid fa-code services-icon"></i>
-              <h3 class="services-title">Web <br /> Development</h3>
+              <h3 class="services-title" data-i18n="service_web_title">Web <br /> Development</h3>
             </div>
             <span class="button button-flex button-small button-link services-button">
-              View more <i class="fa-solid fa-arrow-right button-icon"></i>
+              <span data-i18n="service_view_more">View more</span> <i class="fa-solid fa-arrow-right button-icon"></i>
             </span>
 
             <div class="services-box">
               <div class="services-box-content">
-                <h4 class="services-box-title">Web <br /> Developer</h4>
+                <h4 class="services-box-title" data-i18n="service_web_job">Web <br /> Developer</h4>
                 <i class="fa-solid fa-xmark services-box-close"></i>
                 <ul class="services-box-services grid">
                   <li class="services-box-list">
                     <i class="fa-regular fa-circle-check services-list-icon"></i>
-                    <p>Responsive Web Design (HTML/CSS/JS)</p>
+                    <p data-i18n="service_web_1">Responsive Web Design (HTML/CSS/JS)</p>
                   </li>
                   <li class="services-box-list">
                     <i class="fa-regular fa-circle-check services-list-icon"></i>
-                    <p>React JS & Frontend Frameworks</p>
+                    <p data-i18n="service_web_2">React JS & Frontend Frameworks</p>
                   </li>
                   <li class="services-box-list">
                     <i class="fa-regular fa-circle-check services-list-icon"></i>
-                    <p>Application Optimization</p>
+                    <p data-i18n="service_web_3">Application Optimization</p>
                   </li>
                 </ul>
               </div>
@@ -693,15 +752,15 @@
           <div class="services-content">
             <div>
               <i class="fa-solid fa-hashtag services-icon"></i>
-              <h3 class="services-title">Cloud <br /> Computing</h3>
+              <h3 class="services-title" data-i18n="service_cloud_title">Cloud <br /> Computing</h3>
             </div>
             <span class="button button-flex button-small button-link services-button">
-              View more <i class="fa-solid fa-arrow-right button-icon"></i>
+              <span data-i18n="service_view_more">View more</span> <i class="fa-solid fa-arrow-right button-icon"></i>
             </span>
 
             <div class="services-box">
               <div class="services-box-content">
-                <h4 class="services-box-title">Cloud <br /> Solutions</h4>
+                <h4 class="services-box-title" data-i18n="service_cloud_job">Cloud <br /> Solutions</h4>
                 <i class="fa-solid fa-xmark services-box-close"></i>
                 <ul class="services-box-services grid">
                   <li class="services-box-list">
@@ -714,11 +773,11 @@
                   </li>
                   <li class="services-box-list">
                     <i class="fa-regular fa-circle-check services-list-icon"></i>
-                    <p>Microservices Architecture</p>
+                    <p data-i18n="service_cloud_3">Microservices Architecture</p>
                   </li>
                   <li class="services-box-list">
                     <i class="fa-regular fa-circle-check services-list-icon"></i>
-                    <p>Scalable Infrastructure</p>
+                    <p data-i18n="service_cloud_4">Scalable Infrastructure</p>
                   </li>
                 </ul>
               </div>
@@ -728,28 +787,28 @@
            <div class="services-content">
             <div>
               <i class="fa-solid fa-briefcase services-icon"></i>
-              <h3 class="services-title">Project <br /> Management</h3>
+              <h3 class="services-title" data-i18n="service_pm_title">Project <br /> Management</h3>
             </div>
             <span class="button button-flex button-small button-link services-button">
-              View more <i class="fa-solid fa-arrow-right button-icon"></i>
+              <span data-i18n="service_view_more">View more</span> <i class="fa-solid fa-arrow-right button-icon"></i>
             </span>
 
             <div class="services-box">
               <div class="services-box-content">
-                <h4 class="services-box-title">Project <br /> Manager</h4>
+                <h4 class="services-box-title" data-i18n="service_pm_job">Project <br /> Manager</h4>
                 <i class="fa-solid fa-xmark services-box-close"></i>
                 <ul class="services-box-services grid">
                   <li class="services-box-list">
                     <i class="fa-regular fa-circle-check services-list-icon"></i>
-                    <p>Agile Development</p>
+                    <p data-i18n="service_pm_1">Agile Development</p>
                   </li>
                   <li class="services-box-list">
                     <i class="fa-regular fa-circle-check services-list-icon"></i>
-                    <p>Stakeholder Management</p>
+                    <p data-i18n="service_pm_2">Stakeholder Management</p>
                   </li>
                   <li class="services-box-list">
                     <i class="fa-regular fa-circle-check services-list-icon"></i>
-                    <p>Team Leadership</p>
+                    <p data-i18n="service_pm_3">Team Leadership</p>
                   </li>
                 </ul>
               </div>
@@ -759,8 +818,8 @@
       </section>
 
       <section class="portfolio section" id="portfolio">
-        <h2 class="section-title">Projects</h2>
-        <span class="section-subtitle">Most recent work</span>
+        <h2 class="section-title" data-i18n="projects_title">Projects</h2>
+        <span class="section-subtitle" data-i18n="projects_subtitle">Most recent work</span>
 
         <div class="portfolio-container container swiper-container">
           <div class="swiper-wrapper">
@@ -768,11 +827,11 @@
               <img src="Assets/project1.jpg" alt="" class="portfolio-img" />
               <div class="portfolio-data">
                 <h3 class="portfolio-title">Software SAAS</h3>
-                <p class="portfolio-description">
+                <p class="portfolio-description" data-i18n="project_1_desc">
                   Implementation of scalable cloud architectures This is a SaaS project for an insurance policy management system, developed to facilitate the digital administration of proposals and policies.
                   </p>
                 <a href="https://seguradoraauto.netlify.app" target="_blank" class="button button-flex button-small portfolio-button">
-                      View Details <i class="fa-solid fa-arrow-right button-icon"></i>
+                      <span data-i18n="project_view">View Details</span> <i class="fa-solid fa-arrow-right button-icon"></i>
                   </a>
               </div>
             </div>
@@ -781,11 +840,11 @@
                 <img src="Assets/project2.jpg" alt="" class="portfolio-img" />
                 <div class="portfolio-data">
                   <h3 class="portfolio-title">Enterprise Solution</h3>
-                  <p class="portfolio-description">
+                  <p class="portfolio-description" data-i18n="project_2_desc">
                     Large-scale dev FrontEnd software development project managementPet Admin GOV is a senior administration panel developed to manage pets and their owners in a centralized way. The system allows viewing, creating, editing, and deleting records, focusing on data integrity and traceability of the links between animals and their owners..
                 </p>
                   <a href="https://aidanodasilvalima784722.netlify.app" target="_blank" class="button button-flex button-small portfolio-button">
-                View Details <i class="fa-solid fa-arrow-right button-icon"></i>
+                <span data-i18n="project_view">View Details</span> <i class="fa-solid fa-arrow-right button-icon"></i>
             </a>
                 </div>
               </div>
@@ -804,18 +863,22 @@
       </section>
 
       <section class="testimonial section">
-        <h2 class="section-title">Testimonial</h2>
-        <span class="section-subtitle">My clients and professional friends are saying</span>
+        <h2 class="section-title" data-i18n="testimonial_title">Testimonial</h2>
+        <span class="section-subtitle" data-i18n="testimonial_subtitle">My clients and professional friends are saying</span>
 
         <div class="testimonial-container container swiper-container" style="overflow: hidden;">
           <div class="swiper-wrapper">
             <div class="testimonial-content swiper-slide">
               <div class="testimonial-data">
                 <div class="testimonial-header">
-                  <img src="Assets/Icons/testimonial1.png" alt="" class="testimonial-img">
+                  <a href="https://www.linkedin.com/in/caio-barbosa-LINKEDIN" target="_blank">
+                     <img src="Assets/Icons/testimonial1.png" alt="" class="testimonial-img">
+                  </a>
                   <div>
-                    <h3 class="testimonial-name">Caio Barbosa</h3>
-                    <span class="testimonial-client">Professional Friends</span>
+                    <a href="https://www.linkedin.com/in/caio-barbosa-LINKEDIN" target="_blank" style="text-decoration: none; color: inherit;">
+                        <h3 class="testimonial-name">1.Caio Barbosa</h3>
+                    </a>
+                    <span class="testimonial-client" data-i18n="client_friend">Professional Friends</span>
                   </div>
                 </div>
                 <div>
@@ -826,7 +889,7 @@
                   <i class="fa-regular fa-star testimonial-icon"></i>
                 </div>
               </div>
-              <p class="testimonial-description">
+              <p class="testimonial-description" data-i18n="testim_1">
                 Áidano is an exemplary professional. Skilled, committed, and motivated. He is capable of leading and building relationships in the projects he works on.
               </p>
             </div>
@@ -834,10 +897,14 @@
             <div class="testimonial-content swiper-slide">
               <div class="testimonial-data">
                 <div class="testimonial-header">
-                  <img src="Assets/Icons/testimonial2.png" alt="" class="testimonial-img">
+                  <a href="https://www.linkedin.com/in/cristina-luna-LINKEDIN" target="_blank">
+                    <img src="Assets/Icons/testimonial2.png" alt="" class="testimonial-img">
+                  </a>
                   <div>
-                    <h3 class="testimonial-name">Cristina Luna</h3>
-                    <span class="testimonial-client">Professional Friends</span>
+                    <a href="https://www.linkedin.com/in/cristina-luna-LINKEDIN" target="_blank" style="text-decoration: none; color: inherit;">
+                        <h3 class="testimonial-name">2.Cristina Luna</h3>
+                    </a>
+                    <span class="testimonial-client" data-i18n="client_friend">Professional Friends</span>
                   </div>
                 </div>
                 <div>
@@ -848,7 +915,7 @@
                   <i class="fa-regular fa-star testimonial-icon"></i>
                 </div>
               </div>
-              <p class="testimonial-description">
+              <p class="testimonial-description" data-i18n="testim_2">
                 Áidano is a dynamic, creative, and willing professional. He has a unifying profile and works easily with the teams he's involved with.
               </p>
             </div>
@@ -856,10 +923,14 @@
             <div class="testimonial-content swiper-slide">
               <div class="testimonial-data">
                 <div class="testimonial-header">
-                  <img src="Assets/Icons/testimonial3.png" alt="" class="testimonial-img">
+                  <a href="https://www.linkedin.com/in/lucas-novais-LINKEDIN" target="_blank">
+                    <img src="Assets/Icons/testimonial3.png" alt="" class="testimonial-img">
+                  </a>
                   <div>
-                    <h3 class="testimonial-name">Lucas Novais</h3>
-                    <span class="testimonial-client">Professional Friends</span>
+                    <a href="https://www.linkedin.com/in/lucas-novais-LINKEDIN" target="_blank" style="text-decoration: none; color: inherit;">
+                        <h3 class="testimonial-name">3.Lucas Novais</h3>
+                    </a>
+                    <span class="testimonial-client" data-i18n="client_friend">Professional Friends</span>
                   </div>
                 </div>
                 <div>
@@ -870,7 +941,7 @@
                   <i class="fa-regular fa-star testimonial-icon"></i>
                 </div>
               </div>
-              <p class="testimonial-description">
+              <p class="testimonial-description" data-i18n="testim_3">
                 Áidano is highly technical, possesses excellent analytical skills, and is always committed to the company's objectives.
               </p>
             </div>
@@ -878,10 +949,14 @@
             <div class="testimonial-content swiper-slide">
               <div class="testimonial-data">
                 <div class="testimonial-header">
-                  <img src="Assets/Icons/testimonial4.png" alt="" class="testimonial-img">
+                  <a href="https://www.linkedin.com/" target="_blank">
+                    <img src="Assets/Icons/testimonial4.png" alt="" class="testimonial-img">
+                  </a>
                   <div>
-                    <h3 class="testimonial-name">Regner Santos</h3>
-                    <span class="testimonial-client">Professional Client</span>
+                    <a href="https://www.linkedin.com/" target="_blank" style="text-decoration: none; color: inherit;">
+                        <h3 class="testimonial-name">4.Manfredi Melo</h3>
+                    </a>
+                    <span class="testimonial-client" data-i18n="client_pro">Professional Client</span>
                   </div>
                 </div>
                 <div>
@@ -892,17 +967,22 @@
                   <i class="fa-regular fa-star testimonial-icon"></i>
                 </div>
               </div>
-              <p class="testimonial-description">
-                I worked with Áidano on PRojets in the technology area at the port of Suape, Pernambuco, when he was the Executive Coordinator of ICT at the port. He is a professional with high technical knowledge and skills in proposing solutions to complex and heterogeneous problems. He has excellent communication and experience, which generated high confidence and fluidity in the projects.</p>
+              <p class="testimonial-description" data-i18n="testim_4">
+                Excellent delivery and technical support. The project was completed ahead of schedule with high quality code.
+              </p>
             </div>
 
             <div class="testimonial-content swiper-slide">
               <div class="testimonial-data">
                 <div class="testimonial-header">
-                  <img src="Assets/Icons/testimonial5.png" alt="" class="testimonial-img">
+                  <a href="https://www.linkedin.com/" target="_blank">
+                    <img src="Assets/Icons/testimonial5.png" alt="" class="testimonial-img">
+                  </a>
                   <div>
-                    <h3 class="testimonial-name">Manfredi Melo</h3>
-                    <span class="testimonial-client">Tech Partner</span>
+                    <a href="https://www.linkedin.com/" target="_blank" style="text-decoration: none; color: inherit;">
+                        <h3 class="testimonial-name">5.Regner Santos</h3>
+                    </a>
+                    <span class="testimonial-client" data-i18n="client_partner">Tech Partner</span>
                   </div>
                 </div>
                 <div>
@@ -913,8 +993,9 @@
                   <i class="fa-regular fa-star testimonial-icon"></i>
                 </div>
               </div>
-              <p class="testimonial-description">
-                Áidano is an excellent professional. Dedicated and with immense technical knowledge. A great analyst capable of successfully tackling major challenges. A professional always willing to collaborate with the team and share his vast experience. Success, my friend.</p>
+              <p class="testimonial-description" data-i18n="testim_5">
+                Great experience working together on cloud migration. Áidano has deep knowledge in AWS and architecture.
+              </p>
             </div>
           </div>
 
@@ -933,10 +1014,10 @@
         <div class="project-bg">
           <div class="project-container container grid">
             <div class="project-data">
-              <h2 class="project-title">Do you have a new project, Collaboration, And Work?</h2>
-              <p class="project-description">Feel Free to Discuss with me</p>
+              <h2 class="project-title" data-i18n="project_contact_title">Do you have a new project, Collaboration, And Work?</h2>
+              <p class="project-description" data-i18n="project_contact_desc">Feel Free to Discuss with me</p>
               <a href="#contact" class="button button-flex button-white">
-                Contact Me <i class="fa-regular fa-comment-dots project-icon button-icon"></i>
+                <span data-i18n="home_contact_btn">Contact Me</span> <i class="fa-regular fa-comment-dots project-icon button-icon"></i>
               </a>
             </div>
             <img src="Assets/contactme.png" alt="" class="project-img" />
@@ -945,8 +1026,8 @@
       </section>
 
       <section class="contact section" id="contact">
-        <h2 class="section-title">Contact me</h2>
-        <span class="section-subtitle">Get in touch</span>
+        <h2 class="section-title" data-i18n="contact_title">Contact me</h2>
+        <span class="section-subtitle" data-i18n="contact_subtitle">Get in touch</span>
 
         <div class="contact-container container grid">
           <div>
@@ -973,12 +1054,12 @@
           <div class="footer-container container grid">
             <div>
               <h1 class="footer-title">Áidano Lima</h1>
-              <span class="footer-subtitle">Dev Full Stack, Cloud and Project Manager</span>
+              <span class="footer-subtitle" id="footer-role">Dev Full Stack, Cloud and Project Manager</span>
             </div>
             <ul class="footer-links">
-              <li><a href="#services" class="footer-link">Services</a></li>
-              <li><a href="#portfolio" class="footer-link">Portfolio</a></li>
-              <li><a href="#contact" class="footer-link">Contact</a></li>
+              <li><a href="#services" class="footer-link" data-i18n="nav_services">Services</a></li>
+              <li><a href="#portfolio" class="footer-link" data-i18n="nav_projects">Portfolio</a></li>
+              <li><a href="#contact" class="footer-link" data-i18n="nav_contact">Contact</a></li>
             </ul>
 
             <div class="footer-socials">
