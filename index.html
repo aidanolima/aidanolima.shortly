@@ -10,7 +10,8 @@
     <meta name="author" content="Áidano Lima" />
     
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://seusite.com.br" /> <meta property="og:title" content="Áidano Lima - Transformando Ideias em Soluções Digitais" />
+    <meta property="og:url" content="https://seusite.com.br" />
+    <meta property="og:title" content="Áidano Lima - Transformando Ideias em Soluções Digitais" />
     <meta property="og:description" content="Conheça meus projetos em Desenvolvimento Web, Cloud Computing e Gestão de Projetos." />
     <meta property="og:image" content="Assets/preview-share.jpg" /> 
     <meta property="og:image:width" content="1200" />
@@ -42,17 +43,28 @@
         align-items: center;
       }
       
+      /* Estilo Padrão (Desktop) - Abre para BAIXO */
       .language-menu {
         position: absolute;
-        top: 120%;
+        top: 130%; /* Um pouco mais afastado para não colar */
         right: -10px;
         background-color: var(--container-color);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        box-shadow: 0 -4px 12px rgba(0,0,0,0.15); /* Sombra para cima e para baixo */
         border-radius: 0.5rem;
         padding: 0.5rem 0;
         display: none;
-        z-index: 1000;
+        z-index: 10000; /* Z-index alto para garantir que fique por cima de tudo */
         min-width: 140px;
+      }
+
+      /* CORREÇÃO PARA MOBILE (Telas menores que 767px) */
+      @media screen and (max-width: 767px) {
+        .language-menu {
+          top: auto;       /* Anula o top do desktop */
+          bottom: 150%;    /* Empurra o menu para CIMA do ícone */
+          right: -50%;     /* Centraliza melhor em relação ao ícone */
+          box-shadow: 0 4px 20px rgba(0,0,0,0.2); /* Sombra mais forte no mobile */
+        }
       }
 
       .show-language {
