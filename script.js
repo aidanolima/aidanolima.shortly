@@ -225,7 +225,7 @@ const translations = {
     project_contact_desc: "Feel Free to Discuss with me",
     contact_title: "Contact me",
     contact_subtitle: "Get in touch",
-    typing_phrases: ["I'll be here soon", "In more detail", "about my portfolio"]
+    typing_phrases: ["Here is my professional resume", "In more detail", "My portfolio, and my contact information."]
   },
   pt: {
     nav_home: "Início",
@@ -292,7 +292,7 @@ const translations = {
     project_contact_desc: "Sinta-se à vontade para discutir comigo",
     contact_title: "Contato",
     contact_subtitle: "Entre em contato",
-    typing_phrases: ["Estarei aqui em breve", "Com mais detalhes", "sobre meu portfólio"]
+    typing_phrases: ["Aqui esta meu Currículo profissional", "Com mais detalhes", "Meu portfólio e meus contatos"]
   },
   es: {
     nav_home: "Inicio",
@@ -359,7 +359,7 @@ const translations = {
     project_contact_desc: "Siéntete libre de discutir conmigo",
     contact_title: "Contacto",
     contact_subtitle: "Ponte en contacto",
-    typing_phrases: ["Estaré aquí pronto", "Con más detalles", "sobre mi portafolio"]
+    typing_phrases: ["Aquí está mi currículum profesional", "Con más detalles", "Mi portafolio y mi información de contacto."]
   }
 };
 
