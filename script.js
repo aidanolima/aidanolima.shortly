@@ -158,7 +158,7 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// Dicionário de Traduções (ATUALIZADO COM PROJETOS 3 e 4)
+// Dicionário de Traduções
 const translations = {
   en: {
     nav_home: "Home",
@@ -402,12 +402,12 @@ let swiperPortfolio = new Swiper(".portfolio-container", {
   },
 
   pagination: {
-    el: ".swiper-pagination",
+    el: ".swiper-pagination-portfolio", // Classe específica
     clickable: true,
   },
 });
 
-/*==================== TESTIMONIAL SWIPER (COM SETAS/ARROWS) ====================*/
+/*==================== TESTIMONIAL SWIPER ====================*/
 let swiperTestimonial = new Swiper(".testimonial-container", {
   loop: true,
   grabCursor: true,
@@ -417,6 +417,13 @@ let swiperTestimonial = new Swiper(".testimonial-container", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
+  },
+  
+  // ADICIONADO PAGINAÇÃO AQUI TAMBÉM
+  pagination: {
+    el: ".swiper-pagination-testimonial", // Classe específica
+    clickable: true,
+    dynamicBullets: true, // Bolinhas dinâmicas ficam mais elegantes
   },
 
   breakpoints: {
