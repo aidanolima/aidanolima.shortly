@@ -1,42 +1,35 @@
-// Define o nome e a versão do cache. 
-// Sempre que fizer grandes atualizações no site, mude para 'v2', 'v3', etc.
-const CACHE_NAME = 'portfolio-aidano-v1';
+// Aumentamos a versão para forçar o navegador a atualizar o Service Worker
+const CACHE_NAME = 'portfolio-aidano-v2';
 
-// Lista de arquivos essenciais que serão salvos no dispositivo do usuário
+// Apenas o essencial do essencial (arquivos que não dão 404)
 const urlsToCache = [
   './',
   './index.html',
   './Css/style.css',
   './script.js',
-  './manifest.json',
-  './Assets/Icons/Profil_Aidano.png',
-  './Assets/mouse.svg',
-  './Assets/aboutme.png',
-  './Assets/contactme.png'
-  // Se quiser, adicione o caminho de outras imagens ou do seu CV aqui
+  './manifest.json'
 ];
 
-// Evento de INSTALAÇÃO: É disparado na primeira vez que o site abre
+// Instalação: Salva apenas os arquivos críticos
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('[Service Worker] Fazendo cache dos arquivos essenciais');
+        console.log('[Service Worker] Fazendo pré-cache dos arquivos principais');
         return cache.addAll(urlsToCache);
       })
+      .catch(err => console.error('[Service Worker] Erro no pré-cache:', err))
   );
-  // Força o Service Worker a assumir o controle imediatamente
   self.skipWaiting();
 });
 
-// Evento de ATIVAÇÃO: Ideal para limpar caches antigos
+// Ativação: Limpa versões antigas do cache
 self.addEventListener('activate', event => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
-          // Se o cache antigo não estiver na whitelist, ele é deletado
           if (cacheWhitelist.indexOf(cacheName) === -1) {
             console.log('[Service Worker] Deletando cache antigo:', cacheName);
             return caches.delete(cacheName);
@@ -48,30 +41,36 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Evento FETCH: Intercepta as requisições de rede
+// Fetch: Tenta pegar do cache, se não tiver, pega da rede e SALVA no cache dinamicamente
 self.addEventListener('fetch', event => {
-  // Ignora requisições que não sejam GET (como POSTs de formulários)
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // Retorna o arquivo do cache se ele existir
+        // Se achou no cache, retorna na hora
         if (response) {
           return response;
         }
 
-        // Se não estiver no cache, faz a requisição pela rede
+        // Se não achou, vai na rede (internet)
         return fetch(event.request).then(networkResponse => {
-          // Opcional: Você pode clonar a resposta da rede e adicionar ao cache dinamicamente aqui,
-          // mas para um portfólio, apenas o cache estático (urlsToCache) já é excelente.
+          // Checa se recebemos uma resposta válida (status 200) e se é uma requisição do nosso próprio domínio (basic)
+          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+            return networkResponse;
+          }
+
+          // Clona a resposta (pois ela só pode ser consumida uma vez) e adiciona ao cache dinâmico
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, responseToCache);
+          });
+
           return networkResponse;
+        }).catch(error => {
+          console.log('[Service Worker] Falha de conexão. O usuário pode estar offline.', error);
+          // Opcional: aqui você poderia retornar uma página HTML amigável de "Você está offline"
         });
-      })
-      .catch(() => {
-        // Se a rede falhar e o arquivo não estiver no cache (ex: offline e tentando ver uma imagem nova)
-        // Você poderia retornar uma página "offline.html" genérica aqui, se tivesse.
-        console.log('[Service Worker] Falha ao buscar recurso na rede ou cache.');
       })
   );
 });
