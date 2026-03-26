@@ -1,0 +1,21 @@
+{
+  "name": "Portfolio Áidano Lima",
+  "short_name": "Áidano",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#121212",
+  "description": "Portfolio of Áidano Lima. Full Stack Developer, Cloud Architect and Project Manager.",
+  "icons": [
+    {
+      "src": "Assets/Icons/Profil_Aidano.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Assets/Icons/Profil_Aidano.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

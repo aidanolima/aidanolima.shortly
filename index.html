@@ -10,7 +10,7 @@
     <meta name="author" content="Áidano Lima" />
     
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://seusite.com.br" />
+    <meta property="og:url" content="https://aidanolima.com.br" />
     <meta property="og:title" content="Áidano Lima - Transformando Ideias em Soluções Digitais" />
     <meta property="og:description" content="Conheça meus projetos em Desenvolvimento Web, Cloud Computing e Gestão de Projetos." />
     <meta property="og:image" content="Assets/preview-share.jpg" /> 
@@ -25,6 +25,10 @@
     <meta name="twitter:image" content="Assets/preview-share.jpg" />
 
     <link rel="shortcut icon" href="Assets/Icons/Profil_Aidano.png" type="image/x-icon" />
+    
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#121212" />
+    <link rel="apple-touch-icon" href="Assets/Icons/Profil_Aidano.png" />
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
@@ -1147,5 +1151,15 @@
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then((reg) => console.log('Service Worker Registrado com sucesso!', reg))
+            .catch((err) => console.error('Falha ao registrar o Service Worker:', err));
+        });
+      }
+    </script>
   </body>
 </html>
