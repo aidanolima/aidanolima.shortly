@@ -1,5 +1,5 @@
 // Aumentamos a versão para forçar o navegador a atualizar o Service Worker
-const CACHE_NAME = 'portfolio-aidano-v2';
+const CACHE_NAME = 'portfolio-aidano-v3';
 
 // Apenas o essencial do essencial (arquivos que não dão 404)
 const urlsToCache = [
